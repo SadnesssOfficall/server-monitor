@@ -1,0 +1,69 @@
+{
+  "name": "server-monitor",
+  "version": "0.1.0",
+  "description": "Uptime monitoring with separate API and worker processes. HTTP, HTTPS, TCP, ping and keyword checks, incidents, notifications and SSRF protection.",
+  "keywords": [
+    "uptime",
+    "monitoring",
+    "healthcheck",
+    "status",
+    "http",
+    "tcp",
+    "ping",
+    "ssrf",
+    "cli"
+  ],
+  "license": "MIT",
+  "author": "Sadness",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "server-monitor": "dist/cli/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SadnesssOfficall/server-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SadnesssOfficall/server-monitor/issues"
+  },
+  "homepage": "https://github.com/SadnesssOfficall/server-monitor#readme",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.4",
+    "eslint": "^10.12.0",
+    "prettier": "^3.9.9",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.0",
+    "vitest": "^4.1.11"
+  },
+  "optionalDependencies": {
+    "pg": "^8.13.0"
+  }
+}
